@@ -42,9 +42,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "id integer primary key autoincrement," +
                 "titulo text not null, "+
                 "descricao text not null," +
-                "data_desejada text not null," +
+                "dataDesejada text not null," +
                 "status text, " +
-                "data_realizada text)";
+                "dataRealizada text)";
     }
 
     private String dropTableUser(){

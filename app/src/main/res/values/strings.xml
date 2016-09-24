@@ -6,7 +6,7 @@
     <string name="facebook_app_id">868453333226038</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="title_activity_home">Lista de metas</string>
-    <string name="btnLogin">Entrar</string>
+    <string name="btnLogin">ENTRAR</string>
     <string name="frase_cadastro">Cadastre-se no CheckMeta</string>
     <string name="nome">Nome:</string>
     <string name="email">E-mail:</string>
@@ -20,4 +20,5 @@
     <string name="duedate_meta">Data prevista:</string>
     <string name="actualdate_meta">Data conquistada:</string>
     <string name="status_meta">Status:</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

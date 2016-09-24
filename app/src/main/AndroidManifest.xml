@@ -20,9 +20,11 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name=".MainActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".MetaActivity" />
+        <activity android:name=".HomeActivity"
+            android:label="@string/title_activity_home"/>
+
     </application>
 
 </manifest>

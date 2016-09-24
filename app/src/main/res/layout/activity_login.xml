@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/ActionBarGreen">
+    style="@style/ActivityBackgroundGreen">
 
     <EditText style="@style/tvFullParent"
         android:id="@+id/etEmail"
         android:background="@drawable/shape_edittext"
         android:inputType="textEmailAddress"
         android:drawableLeft="@drawable/ic_action_user"
-        android:hint="E-mail"/>
+        android:hint="E-mail"
+        android:text="teste@teste.com"/>
 
     <EditText style="@style/tvFullParent"
         android:id="@+id/etPassword"
         android:background="@drawable/shape_edittext"
         android:inputType="textPassword"
         android:drawableLeft="@drawable/ic_action_lock_closed"
-        android:hint="Senha"/>
+        android:hint="Senha"
+        android:text="teste@teste.com"/>
 
     <Button
         android:id="@+id/btnLogin"
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
+        android:background="@color/backgroundGray"
         android:text="@string/btnLogin"/>
 
     <TextView

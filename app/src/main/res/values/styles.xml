@@ -7,9 +7,10 @@
 
     <!-- Action bar theme -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
-        <item name="android:background">@color/action_bar_color</item>
-        <item name="background">@color/action_bar_color</item>
+        <item name="android:background">@color/greenActionBar</item>
+        <item name="background">@color/greenActionBar</item>
     </style>
+
 
     <style name="tvFullParent" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">match_parent</item>
@@ -28,8 +29,7 @@
     </style>
 
 
-
-    <style name="ActionBarGreen">
+    <style name="ActivityBackgroundGreen">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -37,4 +37,13 @@
         <item name="android:scrollbars">none</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"></style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
 </resources>
