@@ -15,10 +15,11 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="success_user_register">Usuário cadastrado com sucesso!</string>
     <string name="title_activity_meta">Meta</string>
-    <string name="name_meta">Nome da meta:</string>
-    <string name="description_meta">Descrição:</string>
-    <string name="duedate_meta">Data prevista:</string>
-    <string name="actualdate_meta">Data conquistada:</string>
-    <string name="status_meta">Status:</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="titulo">Título:</string>
+    <string name="descricao">Descrição:</string>
+    <string name="dataDesejada">Data prevista:</string>
+    <string name="dataRealizada">Data conquistada:</string>
+    <string name="status">Status:</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="required_title">Mínimo de 10 caracteres. Por exemplo: Comprar um carro novo</string>
 </resources>

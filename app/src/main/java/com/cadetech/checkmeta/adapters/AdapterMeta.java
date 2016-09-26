@@ -44,7 +44,13 @@ public class AdapterMeta extends ArrayAdapter<Meta>{
         tvNome.setText(meta.getTitulo().toString());
 
         TextView tvDescription = (TextView)view.findViewById(R.id.tvDescription);
-        tvDescription.setText(meta.getDescricao().toString());
+        String descricao = meta.getDescricao().toString();
+
+        //Se a meta não possui descrição, ela replica o título da meta no campo descrição apenas no listview
+        if(descricao.isEmpty())
+            tvDescription.setText(meta.getTitulo().toString());
+        else
+            tvDescription.setText(descricao);
 
         TextView tvDueDate = (TextView)view.findViewById(R.id.tvMetaDueDate);
         tvDueDate.setText(meta.getDataDesejada().toString());
