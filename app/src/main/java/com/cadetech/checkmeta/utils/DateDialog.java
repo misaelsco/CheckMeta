@@ -3,6 +3,7 @@ package com.cadetech.checkmeta.utils;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,10 +22,14 @@ import java.util.Calendar;
  */
 public class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
-    Button txtData;
+    private Button txtData;
+    private Resources resources;
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        resources = getResources();
         // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -38,6 +43,7 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String date = dayOfMonth + "/" + (month+1) + "/" + year;
-        ((Button) getActivity().findViewById(R.id.btnDataDesejada)).setText(date);
+
+        //((Button) getActivity().findViewById(R.id.btnDataDesejada)).setText(date);
     }
 }

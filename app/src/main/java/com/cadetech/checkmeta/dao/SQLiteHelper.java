@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "checkmeta.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public SQLiteHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,6 +40,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     private String getTableMeta(){
         return "CREATE TABLE meta(" +
                 "id integer primary key autoincrement," +
+                "idUsuario integer not null," +
                 "titulo text not null, "+
                 "descricao text not null," +
                 "dataDesejada text not null," +

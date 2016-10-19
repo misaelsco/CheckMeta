@@ -8,8 +8,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.cadetech.checkmeta.adapters.AdapterMeta;
 import com.cadetech.checkmeta.dao.MetaDAO;
@@ -38,6 +41,19 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(HomeActivity.this, MetaActivity.class);
+                HomeActivity.this.startActivity(i);
+            }
+        });
+
+
+        listMetas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object listItem = listMetas.getItemAtPosition(position);
+                TextView itemID = (TextView) view.findViewById(R.id.tvIdMeta);
+                Log.d("[ChangeActivity]", "Home > Meta id: " + itemID.getText().toString());
+                Intent i = new Intent(HomeActivity.this, MetaActivity.class);
+                i.putExtra("metaId", Long.parseLong(itemID.getText().toString()));
                 HomeActivity.this.startActivity(i);
             }
         });

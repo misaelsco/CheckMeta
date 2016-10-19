@@ -39,6 +39,7 @@ public class MetaDAO {
         Long insertedRow = Long.valueOf(-1);
 
         ContentValues values = new ContentValues();
+        values.put("idUsuario", meta.getIdUsuario());
         values.put("titulo", meta.getTitulo());
         values.put("descricao", meta.getDescricao());
         values.put("dataDesejada", meta.getDataDesejada());
@@ -59,7 +60,7 @@ public class MetaDAO {
 
         open();
         try {
-            Cursor c = db.rawQuery("SELECT * FROM " + TABLE , null);
+            Cursor c = db.rawQuery("SELECT * FROM " + TABLE + " WHERE idUsuario = " + 1, null);
 
             if(c.getCount() > 0) {
                 c.moveToFirst();
@@ -67,11 +68,12 @@ public class MetaDAO {
                 do {
                     retrievedMeta = new Meta();
                     retrievedMeta.setId(c.getLong(c.getColumnIndex("id")));
+                    retrievedMeta.setIdUsuario(c.getLong(c.getColumnIndex("idUsuario")));
                     retrievedMeta.setTitulo(c.getString(c.getColumnIndex("titulo")));
                     retrievedMeta.setDescricao(c.getString(c.getColumnIndex("descricao")));
                     retrievedMeta.setDataDesejada(c.getString(c.getColumnIndex("dataDesejada")));
                     retrievedMeta.setStatus(c.getString(c.getColumnIndex("status")));
-
+                    Log.i("[META] ", retrievedMeta.toString());
                     metas.add(retrievedMeta);
                 }
                 while (c.moveToNext());
@@ -89,7 +91,7 @@ public class MetaDAO {
         return metas;
     }
 
-    public Meta select(String idMeta){
+    public Meta select(Long idMeta){
         Meta meta = new Meta();
 
         open();

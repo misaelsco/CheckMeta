@@ -6,6 +6,7 @@ package com.cadetech.checkmeta.dominio;
 public class Meta {
 
     private Long id;
+    private Long idUsuario;
     private String titulo;
     private String descricao;
     private String dataDesejada;
@@ -18,6 +19,14 @@ public class Meta {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getTitulo() {
@@ -59,4 +68,18 @@ public class Meta {
     public void setDataRealizada(String dataRealizada) {
         this.dataRealizada = dataRealizada;
     }
+
+    @Override
+    public String toString() {
+        return "Meta{" +
+                "id=" + id +
+                ", idUsuario=" + idUsuario +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataDesejada='" + dataDesejada + '\'' +
+                ", status='" + status + '\'' +
+                ", dataRealizada='" + dataRealizada + '\'' +
+                '}';
+    }
+
 }
