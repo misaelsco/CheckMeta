@@ -12,12 +12,12 @@
     <string name="email">E-mail:</string>
     <string name="senha">Senha:</string>
     <string name="confirmacao_senha">Confirmação de senha:</string>
-    <string name="cadastrar">Cadastrar</string>
+    <string name="cadastrar">CADASTRAR</string>
     <string name="success_user_register">Usuário cadastrado com sucesso!</string>
     <string name="title_activity_meta">Meta</string>
     <string name="titulo">Título:</string>
-    <string name="descricao">Descrição:</string>
-    <string name="dataDesejada">Data prevista:</string>
+    <string name="descricao">Descrição: (Opcional)</string>
+    <string name="dataDesejada">Data prevista: </string>
     <string name="dataRealizada">Data conquistada:</string>
     <string name="status">Status:</string>
     <string name="required_field">Campo obrigatório</string>

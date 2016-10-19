@@ -28,10 +28,8 @@
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:maxLength="30"
-        />
-
+        android:maxLines="1"
+        android:maxLength="30"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -60,18 +58,27 @@
         android:textAlignment="center"
         android:onClick="showDatePickerDialog" />
 
+    <Button
+        android:id="@+id/btnData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        />
+
     <TextView
         android:id="@+id/tvStatusMeta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/status"
-        android:visibility="visible"/>
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
 
     <Spinner
         android:id="@+id/cbStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/status_meta"/>
+        android:entries="@array/status_meta"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tvDataRealizada"
@@ -93,6 +100,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CADASTRAR"
-        android:id="@+id/btnCadastrar" />
+        android:id="@+id/btnCadastrar"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_button_green"/>
 
 </LinearLayout>

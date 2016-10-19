@@ -7,8 +7,8 @@
 
     <!-- Action bar theme -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
-        <item name="android:background">@color/greenActionBar</item>
-        <item name="background">@color/greenActionBar</item>
+        <item name="android:background">@color/backgroundDarkGreen</item>
+        <item name="background">@color/backgroundDarkGreen</item>
     </style>
 
 
