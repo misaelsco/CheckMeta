@@ -1,7 +1,6 @@
 package com.cadetech.checkmeta;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,10 +16,8 @@ import android.widget.Toast;
 
 import com.cadetech.checkmeta.dao.MetaDAO;
 import com.cadetech.checkmeta.dominio.Meta;
+import com.cadetech.checkmeta.utils.DateDialog;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class MetaActivity extends AppCompatActivity {
 
@@ -37,12 +33,6 @@ public class MetaActivity extends AppCompatActivity {
     private Resources resources;
 
 
-    static final int DUEDATE = 0;
-    static final int ACTUALDATE = 1;
-    int cur = 0;
-    private int year;
-    private int month;
-    private int day;
 
 
     private MetaDAO dao;
@@ -61,17 +51,18 @@ public class MetaActivity extends AppCompatActivity {
 
         txtTitulo = (EditText) findViewById(R.id.txtTitulo);
         txtDescricao = (EditText) findViewById(R.id.txtDescricao);
-        btnDataDesejada = (Button) findViewById(R.id.btnDataDesejada);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
+
+        btnDataDesejada = (Button) findViewById(R.id.btnDataDesejada);
+        Log.i("btnDesejada", String.valueOf(btnDataDesejada.getId()));
+
         btnDataRealizada = (Button) findViewById(R.id.btnDataRealizada);
+        Log.i("btnRealizada", String.valueOf(btnDataRealizada.getId()));
+
         tvDataRealizada = (TextView) findViewById(R.id.tvDataRealizada);
         tvStatus = (TextView) findViewById(R.id.tvStatusMeta);
         spStatus = (Spinner) findViewById(R.id.cbStatus);
 
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
 
 
         if (getIntent().hasExtra("metaId")) {
@@ -110,57 +101,22 @@ public class MetaActivity extends AppCompatActivity {
             }
         });
 
-        btnDataDesejada.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showDialog(DUEDATE);
-            }
-        });
-
-        btnDataRealizada.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showDialog(ACTUALDATE);
-            }
-        });
     }
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int selectedYear,
-                              int selectedMonth, int selectedDay) {
+    public void showDatePickerDialog(View v) {
 
-            year = selectedYear;
-            month = selectedMonth;
-            day = selectedDay;
+        DateDialog newFragment = new DateDialog();
 
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(year, month, day);
+       /* if(v == btnDataDesejada){
+            newFragment.quemChamou = 1;
+        }else{
+            newFragment.quemChamou = 2;
+        }*/
+        newFragment.target  = (Button) v;
 
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            String date = df.format(calendar.getTime());
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        newFragment.show(ft, "datePicker");
 
-            if(cur == DUEDATE){
-                btnDataDesejada.setText(date);
-            }
-            else{
-                btnDataRealizada.setText(date);
-            }
-        }
-    };
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DUEDATE:
-                cur = DUEDATE;
-                return new DatePickerDialog(this,
-                        mDateSetListener,
-                        year, month, day);
-            case ACTUALDATE:
-                cur = ACTUALDATE;
-                return new DatePickerDialog(this,
-                        mDateSetListener,
-                        year, month, day);
-        }
-        return null;
     }
 
     private int selectSpinner(String text){
