@@ -82,6 +82,7 @@ public class MetaActivity extends AppCompatActivity {
             btnDataDesejada.setText(oldMeta.getDataDesejada());
             btnDataRealizada.setText(oldMeta.getDataRealizada());
             spStatus.setSelection(selectSpinner(oldMeta.getStatus()));
+            btnCadastrar.setText("SALVAR");
         }
 
 
@@ -134,7 +135,7 @@ public class MetaActivity extends AppCompatActivity {
     }
 
 
-    public void editar(){
+    public void editar() {
 
         Meta meta = new Meta();
         meta.setId(idMeta);
@@ -145,7 +146,7 @@ public class MetaActivity extends AppCompatActivity {
         meta.setStatus(spStatus.getSelectedItem().toString());
 
         //Compara se o usuário fez alterações na Meta
-        if(!oldMeta.equals(meta)) {
+        if (!oldMeta.equals(meta)) {
             boolean updatedId = dao.update(meta);
             if (updatedId) {
                 Toast.makeText(MetaActivity.this, "Meta editada com sucesso", Toast.LENGTH_LONG).show();
@@ -153,60 +154,11 @@ public class MetaActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MetaActivity.this, "Falha ao editar meta", Toast.LENGTH_LONG).show();
             }
-        }
-        else
-        {
+        } else {
             this.finish();
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void cadastrar() {
 
