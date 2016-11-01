@@ -42,8 +42,7 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
 
         Log.i("btnIdView", String.valueOf(view.getId()) );
         String date = dayOfMonth + "/" + (month+1) + "/" + year;
-
-
+        
        /* if(quemChamou == 1)
             ((Button) getActivity().findViewById(R.id.btnDataDesejada)).setText(date);
         else

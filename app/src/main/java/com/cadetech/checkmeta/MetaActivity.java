@@ -63,8 +63,6 @@ public class MetaActivity extends AppCompatActivity {
         tvStatus = (TextView) findViewById(R.id.tvStatusMeta);
         spStatus = (Spinner) findViewById(R.id.cbStatus);
 
-
-
         if (getIntent().hasExtra("metaId")) {
             Bundle extras = getIntent().getExtras();
             idMeta = extras.getLong("metaId");
@@ -84,7 +82,6 @@ public class MetaActivity extends AppCompatActivity {
             spStatus.setSelection(selectSpinner(oldMeta.getStatus()));
             btnCadastrar.setText("SALVAR");
         }
-
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
